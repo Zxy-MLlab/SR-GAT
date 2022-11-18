@@ -24,7 +24,7 @@ class Model():
         self.word_ebd = tf.get_variable(initializer=self.word_vec, name='word_embedding', trainable=False)
         self.edge_ebd = tf.get_variable(initializer=self.edge_word_vec, name='edge_embedding', trainable=False)
 
-        self.hidden = self.gat()
+        self.hidden = self.sr_gat()
         self.entity_ebd = tf.nn.embedding_lookup(self.word_ebd, self.entity_index)
         self.entity_ebd = tf.reduce_mean(self.entity_ebd, axis=1, keepdims=False)
         self.entity_ebd = tf.reshape(self.entity_ebd, [-1,1,self.word_dim])
@@ -48,7 +48,7 @@ class Model():
 
         return
 
-    def gat(self):
+    def sr_gat(self):
         self.sentence_ebd = tf.nn.embedding_lookup(self.word_ebd, self.sentence_ids)
         self.label_ebd = tf.nn.embedding_lookup(self.edge_ebd, self.label_ids)
 
