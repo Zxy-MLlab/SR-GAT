@@ -35,11 +35,24 @@ Set class_num (2 or 5, class_num indicates the number of relational categories, 
 ```
 training 0 epoch...
   1%|▏         | 72/5219 [00:23<28:04,  3.06it/s]
-```
-## Result
-```
+...
+training 150 epoch...
+###
 test set macro accuracy: 0.9133435582822086
 test set macro precision: 0.8902972279845123
 test set macro recall: 0.9084080450541909
 test set macro f1: 0.8977559548819014
+```
+## Result
+Five-fold cross-validation average accuracy
+```
+Drug-Mutation
+
+Two-class: 93.78%
+Five-class: 93.45%
+---------------------------------
+Drug-Gene-Mutation
+
+Two-class: 93.22%
+Five-class: 92.88%
 ```
